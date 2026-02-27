@@ -28,12 +28,17 @@ export default function ItemList({ items }) {
       </div>
     ));
   }
+ const btn = "px-3 py-1 rounded border text-sm cursor-pointer";
+  const active = `${btn} bg-blue-500 text-white border-blue-500`;
+  const inactive = `${btn} bg-white text-gray-700 border-gray-300`;
 
   return (
     <div>
-      <button onClick={() => setSortBy("name")}>Sort by Name</button>
-      <button onClick={() => setSortBy("category")}>Sort by Category</button>
-      <button onClick={() => setSortBy("grouped")}>Group by Category</button>
+      <div className="flex gap-2 mb-4">
+        <button className={sortBy === "name" ? active : inactive} onClick={() => setSortBy("name")}>Sort by Name</button>
+        <button className={sortBy === "category" ? active : inactive} onClick={() => setSortBy("category")}>Sort by Category</button>
+        <button className={sortBy === "grouped" ? active : inactive} onClick={() => setSortBy("grouped")}>Group by Category</button>
+      </div>
 
       {sortBy === "grouped"
         ? renderGrouped()
