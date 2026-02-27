@@ -24,7 +24,6 @@ export default function Page() {
         </h1>
 
         <ul className="space-y-3">
-          {/* Using each object directly when calling Item */}
           <Item {...item1} />
           <Item {...item2} />
           <Item {...item3} />
